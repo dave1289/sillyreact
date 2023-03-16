@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import foods from './foods.js'
+import { choice, remove } from './helpers.js'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const App = () => {
+   var food = choice(foods)
+   console.log(`I'd like one ${food} please!`)
+   console.log(`HERE YOU GO!: ${food}`)
+   console.log('Delicious! may I have more?!')
+   remove(foods, food)
+   console.log(`Sorry we are all out, we have ${foods}`)
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById('root'))
